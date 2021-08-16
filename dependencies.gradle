@@ -1,0 +1,141 @@
+ext {
+    // Android
+    applicationId = "com.kordia.achievements"
+    compileSdkVersion = 30
+    buildToolsVersion = "30.0.2"
+    minSdkVersion = 21
+    targetSdkVersion = 30
+    versionCode = 1
+    versionName = "1.0"
+    androidCompileSdkVersion = 30
+    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+    // Libraries
+
+    // --Code
+    coreKtxVersion = '1.6.0'
+    appcompatVersion = '1.3.1'
+    materialVersion = '1.4.0'
+    constraintlayoutVersion = '2.1.0'
+    lifeCycleExtensionsVersion = '2.2.0'
+    lifeCycleVersion = '2.3.1'
+    navigationVersion = '2.3.5'
+    hiltDaggerVersion = '2.38.1'
+    hiltVersion = '1.0.0'
+    timberVersion = '4.7.1'
+    retrofitVersion = '2.9.0'
+    cardviewVersion = '1.0.0'
+    preferenceKtxVersion = '1.1.1'
+    recyclerviewVersion = '1.2.1'
+    activityKtxVersion = '1.3.1'
+    fragmentKtxVersion = '1.3.6'
+    roomVersion = '2.3.0'
+    gsonVersion = '2.8.7'
+
+    // --Test
+    junitVersion = '4.13.2'
+    supportTestVersion = '1.1.3'
+    espressoVersion = '3.4.0'
+
+    // App
+    appDependencies = [
+
+            androidCoreKtx        : "androidx.core:core-ktx:$coreKtxVersion",
+            appcompat             : "androidx.appcompat:appcompat:$appcompatVersion",
+            material              : "com.google.android.material:material:$materialVersion",
+            constraintlayout      : "androidx.constraintlayout:constraintlayout:$constraintlayoutVersion",
+            livedataKtx           : "androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleVersion",
+            viewmodelKtx          : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleVersion",
+            navigationFragmentKtx : "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
+            lifecycleExtensions   : "androidx.lifecycle:lifecycle-extensions:$lifeCycleExtensionsVersion",
+            navigationUIKtx       : "androidx.navigation:navigation-ui-ktx:$navigationVersion",
+            hiltDagger            : "com.google.dagger:hilt-android:$hiltDaggerVersion",
+            hiltDaggerCompiler    : "com.google.dagger:hilt-android-compiler:$hiltDaggerVersion",
+            hiltLifecycleViewmodel: "androidx.hilt:hilt-lifecycle-viewmodel:$hiltVersion",
+            hiltCompiler          : "androidx.hilt:hilt-compiler:$hiltVersion",
+            timber                : "com.jakewharton.timber:timber:$timberVersion",
+            roomRuntime           : "androidx.room:room-runtime:$roomVersion",
+    ]
+
+    appTestDependencies = [
+
+            junit                 : "junit:junit:$junitVersion",
+            supportJunit          : "androidx.test.ext:junit:$supportTestVersion",
+            espresso              : "androidx.test.espresso:espresso-core:$espressoVersion"
+    ]
+
+    // Data
+    dataDependencies = [
+
+            androidCoreKtx        : "androidx.core:core-ktx:$coreKtxVersion",
+            appcompat             : "androidx.appcompat:appcompat:$appcompatVersion",
+            material              : "com.google.android.material:material:$materialVersion",
+            hiltDagger            : "com.google.dagger:hilt-android:$hiltDaggerVersion",
+            hiltDaggerCompiler    : "com.google.dagger:hilt-android-compiler:$hiltDaggerVersion",
+            timber                : "com.jakewharton.timber:timber:$timberVersion",
+            lifecycleExtensions   : "androidx.lifecycle:lifecycle-extensions:$lifeCycleExtensionsVersion",
+            reactivestreams       : "androidx.lifecycle:lifecycle-reactivestreams:$lifeCycleVersion",
+            roomKtx               : "androidx.room:room-ktx:$roomVersion",
+            roomRuntime           : "androidx.room:room-runtime:$roomVersion",
+            roomRxJava2           : "androidx.room:room-rxjava2:$roomVersion",
+            roomCompiler          : "androidx.room:room-compiler:$roomVersion",
+    ]
+
+    dataTestDependencies = [
+
+            junit                 : "junit:junit:$junitVersion",
+            supportJunit          : "androidx.test.ext:junit:$supportTestVersion",
+            espresso              : "androidx.test.espresso:espresso-core:$espressoVersion"
+    ]
+
+    // Domain
+    domainDependencies = [
+
+            androidCoreKtx        : "androidx.core:core-ktx:$coreKtxVersion",
+            appcompat             : "androidx.appcompat:appcompat:$appcompatVersion",
+            material              : "com.google.android.material:material:$materialVersion",
+            hiltDagger            : "com.google.dagger:hilt-android:$hiltDaggerVersion",
+            hiltDaggerCompiler    : "com.google.dagger:hilt-android-compiler:$hiltDaggerVersion",
+            timber                : "com.jakewharton.timber:timber:$timberVersion",
+            lifecycleExtensions   : "androidx.lifecycle:lifecycle-extensions:$lifeCycleExtensionsVersion",
+            reactivestreams       : "androidx.lifecycle:lifecycle-reactivestreams:$lifeCycleVersion",
+    ]
+
+    domainTestDependencies = [
+
+            junit                 : "junit:junit:$junitVersion",
+    ]
+    // Presentation
+    presentationDependencies = [
+
+            androidCoreKtx        : "androidx.core:core-ktx:$coreKtxVersion",
+            appcompat             : "androidx.appcompat:appcompat:$appcompatVersion",
+            material              : "com.google.android.material:material:$materialVersion",
+            constraintlayout      : "androidx.constraintlayout:constraintlayout:$constraintlayoutVersion",
+            livedataKtx           : "androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleVersion",
+            viewmodelKtx          : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleVersion",
+            navigationFragmentKtx : "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
+            navigationUIKtx       : "androidx.navigation:navigation-ui-ktx:$navigationVersion",
+            cardview              : "androidx.cardview:cardview:$cardviewVersion",
+            preferenceKtx         : "androidx.preference:preference-ktx:$preferenceKtxVersion",
+            recyclerview          : "androidx.recyclerview:recyclerview:$recyclerviewVersion",
+            activityKtx           : "androidx.activity:activity-ktx:$activityKtxVersion",
+            fragmentKtx           : "androidx.fragment:fragment-ktx:$fragmentKtxVersion",
+            hiltDagger            : "com.google.dagger:hilt-android:$hiltDaggerVersion",
+            hiltDaggerCompiler    : "com.google.dagger:hilt-android-compiler:$hiltDaggerVersion",
+            hiltLifecycleViewmodel: "androidx.hilt:hilt-lifecycle-viewmodel:$hiltVersion",
+            hiltCompiler          : "androidx.hilt:hilt-compiler:$hiltVersion",
+            timber                : "com.jakewharton.timber:timber:$timberVersion",
+            lifecycleExtensions   : "androidx.lifecycle:lifecycle-extensions:$lifeCycleExtensionsVersion",
+            reactivestreams       : "androidx.lifecycle:lifecycle-reactivestreams:$lifeCycleVersion",
+            lifecycleViewmodel    : "androidx.lifecycle:lifecycle-viewmodel:$lifeCycleVersion",
+            gson                  : "com.google.code.gson:gson:$gsonVersion",
+    ]
+
+    presentationTestDependencies = [
+
+            junit                 : "junit:junit:$junitVersion",
+            supportJunit          : "androidx.test.ext:junit:$supportTestVersion",
+            espresso              : "androidx.test.espresso:espresso-core:$espressoVersion"
+    ]
+}

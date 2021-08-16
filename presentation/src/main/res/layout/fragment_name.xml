@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="4dp">
+
+        <EditText
+            android:id="@+id/ed_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="name"
+            android:hint="@string/name"
+            android:inputType="textPersonName"
+            android:maxLines="1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/bt_insert"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:onClick="@{listener::onClick}"
+            android:text="@string/insert"
+            app:layout_constraintEnd_toStartOf="@id/bt_deleteAll"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ed_name" />
+
+        <Button
+            android:id="@+id/bt_deleteAll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:onClick="@{listener::onClick}"
+            android:text="@string/delete_all"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/bt_insert"
+            app:layout_constraintTop_toBottomOf="@id/ed_name" />
+
+        <TextView
+            android:id="@+id/tv_names"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="top|start"
+            android:padding="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bt_insert" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

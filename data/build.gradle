@@ -1,0 +1,78 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
+        testInstrumentationRunner rootProject.ext.testInstrumentationRunner
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+    buildFeatures {
+        dataBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinx_version"
+    implementation dataDependencies.androidCoreKtx
+    implementation dataDependencies.appcompat
+    implementation dataDependencies.material
+
+    // --Hilt
+    implementation(dataDependencies.hiltDagger)
+    kapt(dataDependencies.hiltDaggerCompiler)
+    kapt("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.3.0")
+
+    // --Timber
+    implementation dataDependencies.timber
+
+    // --Lifecycle
+    implementation dataDependencies.lifecycleExtensions
+    implementation dataDependencies.reactivestreams
+
+    // --Room
+    implementation dataDependencies.roomKtx
+    implementation dataDependencies.roomRuntime
+    implementation dataDependencies.roomRxJava2
+    kapt dataDependencies.roomCompiler
+
+    // -Test
+    testImplementation dataTestDependencies.junit
+    androidTestImplementation dataTestDependencies.supportJunit
+    androidTestImplementation dataTestDependencies.espresso
+
+    implementation project(':domain')
+}

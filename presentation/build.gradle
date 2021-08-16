@@ -1,0 +1,86 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id "androidx.navigation.safeargs.kotlin"
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+//        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner rootProject.ext.testInstrumentationRunner
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinx_version"
+    implementation presentationDependencies.androidCoreKtx
+    implementation presentationDependencies.appcompat
+    implementation presentationDependencies.material
+    implementation presentationDependencies.constraintlayout
+    implementation presentationDependencies.livedataKtx
+    implementation presentationDependencies.viewmodelKtx
+    implementation presentationDependencies.navigationFragmentKtx
+    implementation presentationDependencies.navigationUIKtx
+    implementation presentationDependencies.cardview
+    implementation presentationDependencies.preferenceKtx
+    implementation presentationDependencies.recyclerview
+    implementation presentationDependencies.activityKtx
+    implementation presentationDependencies.fragmentKtx
+
+    // -- Hilt
+    implementation(presentationDependencies.hiltDagger)
+    kapt(presentationDependencies.hiltDaggerCompiler)
+    kapt(presentationDependencies.hiltCompiler)
+    kapt("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.3.0")
+
+    // -- Timber
+    implementation presentationDependencies.timber
+
+    // -- Lifecycle
+    implementation presentationDependencies.lifecycleExtensions
+    implementation presentationDependencies.reactivestreams
+    implementation presentationDependencies.lifecycleViewmodel
+
+    // -- Gson
+    implementation presentationDependencies.gson
+
+    // -Test
+    testImplementation presentationTestDependencies.junit
+    androidTestImplementation presentationTestDependencies.supportJunit
+    androidTestImplementation presentationTestDependencies.espresso
+
+    implementation project(':domain')
+}

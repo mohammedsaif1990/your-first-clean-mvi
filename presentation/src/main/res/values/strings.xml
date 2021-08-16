@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Your first clean mvi</string>
+    <string name="name">name</string>
+    <string name="insert">insert</string>
+    <string name="delete_all">delete all</string>
+    <string name="names">Names</string>
+</resources>
