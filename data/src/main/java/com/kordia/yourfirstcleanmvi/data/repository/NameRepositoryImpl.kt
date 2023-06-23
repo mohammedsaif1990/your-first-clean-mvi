@@ -40,7 +40,5 @@ class NameRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun deleteAll() {
-        nameDao.deleteAll()
-    }
+    override suspend fun deleteAll(): DataState<Unit> = DataState.Success(nameDao.deleteAll())
 }

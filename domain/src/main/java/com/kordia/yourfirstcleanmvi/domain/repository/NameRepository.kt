@@ -10,5 +10,5 @@ interface NameRepository {
 
     suspend fun insertName(name: NameEntity): Flow<DataState<Long>>
 
-    suspend fun deleteAll()
+    suspend fun deleteAll(): DataState<Unit>
 }
