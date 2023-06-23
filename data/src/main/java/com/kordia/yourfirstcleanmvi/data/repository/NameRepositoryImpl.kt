@@ -2,8 +2,8 @@ package com.kordia.yourfirstcleanmvi.data.repository
 
 import com.kordia.yourfirstcleanmvi.data.db.name.NameDao
 import com.kordia.yourfirstcleanmvi.data.mapper.toNameData
-import com.kordia.yourfirstcleanmvi.data.mapper.toNameDtoList
-import com.kordia.yourfirstcleanmvi.domain.model.NameDto
+import com.kordia.yourfirstcleanmvi.data.mapper.toNameEntityList
+import com.kordia.yourfirstcleanmvi.domain.entity.NameEntity
 import com.kordia.yourfirstcleanmvi.domain.repository.NameRepository
 import com.kordia.yourfirstcleanmvi.domain.utils.DataState
 import kotlinx.coroutines.flow.flow
@@ -19,14 +19,14 @@ class NameRepositoryImpl @Inject constructor(
             if (allNames.isEmpty()) {
                 emit(DataState.Empty)
             } else {
-                emit(DataState.Success(allNames.toNameDtoList()))
+                emit(DataState.Success(allNames.toNameEntityList()))
             }
         } catch (e: Exception) {
             emit(DataState.Error(e))
         }
     }
 
-    override suspend fun insertName(name: NameDto) = flow {
+    override suspend fun insertName(name: NameEntity) = flow {
         emit(DataState.Loading)
         try {
             val nameLong = nameDao.insert(name.toNameData())
@@ -40,7 +40,5 @@ class NameRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun deleteAll() {
-        nameDao.deleteAll()
-    }
+    override suspend fun deleteAll(): DataState<Unit> = DataState.Success(nameDao.deleteAll())
 }

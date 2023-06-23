@@ -1,18 +1,18 @@
 package com.kordia.yourfirstcleanmvi.data.mapper
 
 import com.kordia.yourfirstcleanmvi.data.db.name.NameData
-import com.kordia.yourfirstcleanmvi.domain.model.NameDto
+import com.kordia.yourfirstcleanmvi.domain.entity.NameEntity
 
-fun NameData.toNameDto() = NameDto(
+fun NameData.toNameEntity() = NameEntity(
     id = id,
     name = name
 )
 
-fun NameDto.toNameData() = NameData(
+fun NameEntity.toNameData() = NameData(
     id = id,
     name = name
 )
 
-fun List<NameData>.toNameDtoList() = this.map { it.toNameDto() }
+fun List<NameData>.toNameEntityList() = this.map { it.toNameEntity() }
 
-fun List<NameDto>.toNameDataList() = this.map { it.toNameData() }
+fun List<NameEntity>.toNameDataList() = this.map { it.toNameData() }
